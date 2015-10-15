@@ -58,6 +58,8 @@ class WSU_Shortcode_Documenter {
 
 		$defaults = array(
 			'shortcode' => '',
+			'atts' => '',
+			'values' => '',
 		);
 		$atts = shortcode_atts( $defaults, $atts );
 
@@ -66,6 +68,19 @@ class WSU_Shortcode_Documenter {
 			$return_content = '&#91;' . $atts['shortcode'];
 		} else {
 			return '';
+		}
+
+		if ( ! empty( $atts['atts'] ) ) {
+			$atts_build = explode( ',', $atts['atts'] );
+			$values_build = explode( ',', $atts['values'] );
+
+			foreach( $atts_build as $k => $v ) {
+				if ( ! isset( $values_build[ $k ] ) ) {
+					continue;
+				}
+
+				$return_content .= ' ' . esc_html( trim( $v ) ) . '="' . esc_html( trim( $values_build[ $k ] ) ) . '"';
+			}
 		}
 
 		// Close the initial shortcode block.
