@@ -1,6 +1,6 @@
 <?php
 
-class MyTestClass extends WP_UnitTestCase {
+class Test_Shortcode_Documenter extends WP_UnitTestCase {
 
 	/**
 	 * @dataProvider data_shortcode_response
