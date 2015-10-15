@@ -56,7 +56,25 @@ class WSU_Shortcode_Documenter {
 			return '';
 		}
 
-		return 'Shortcode documentation';
+		$defaults = array(
+			'shortcode' => '',
+		);
+		$atts = shortcode_atts( $defaults, $atts );
+
+		// Start building the shortcode.
+		if ( ! empty( $atts['shortcode'] ) ) {
+			$content = '&#91;' . $atts['shortcode'];
+		} else {
+			return '';
+		}
+
+		// Close the initial shortcode block.
+		if ( ! empty( $atts['shortcode'] ) ) {
+			$content .= '&#93;';
+		}
+
+		$content = '<pre><code>' . $content . '</code></pre>';
+		return $content;
 	}
 }
 

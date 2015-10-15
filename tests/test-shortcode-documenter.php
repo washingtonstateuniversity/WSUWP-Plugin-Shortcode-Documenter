@@ -17,6 +17,8 @@ class Test_Shortcode_Documenter extends WP_UnitTestCase {
 	public function data_shortcode_response() {
 		$data = array(
 			array( '[shortcode_doc]', '' ),
+			array( '[shortcode_doc shortcode=""]', '' ),
+			array( '[shortcode_doc shortcode="wsuwp_json"]', '<pre><code>[wsuwp_json]</code></pre>'),
 		);
 
 		return $data;
