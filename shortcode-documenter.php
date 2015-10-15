@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Shortcode Documenter
-Version: 0.0.1
+Version: 0.1.0
 Description: Provide a shortcode to use when documenting shortcodes.
 Author: washingtonstateuniversity, jeremyfelt
 Author URI: https://web.wsu.edu/
