@@ -52,6 +52,10 @@ class WSU_Shortcode_Documenter {
 	 * @return string
 	 */
 	public function display_shortcode_doc( $atts, $content ) {
+		if ( empty( $atts ) ) {
+			return '';
+		}
+
 		return 'Shortcode documentation';
 	}
 }

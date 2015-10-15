@@ -6,6 +6,6 @@ class MyTestClass extends WP_UnitTestCase {
 		$content = '[shortcode_doc]';
 		$content = do_shortcode( $content );
 
-		$this->assertEquals( 'Shortcode documentation', $content );
+		$this->assertEquals( '', $content );
 	}
 }
