@@ -1,6 +1,6 @@
 # WSU Shortcode Documenter
 
-![Build Status](https://travis-ci.org/washingtonstateuniversity/WSUWP-Plugin-Shortcode-Documenter.svg?branch=master)
+![Build Status](https://travis-ci.org/washingtonstateuniversity/WSUWP-Plugin-Shortcode-Documenter.svg?branch=master) [![Code Climate](https://codeclimate.com/github/washingtonstateuniversity/WSUWP-Plugin-Shortcode-Documenter/badges/gpa.svg)](https://codeclimate.com/github/washingtonstateuniversity/WSUWP-Plugin-Shortcode-Documenter)
 
 Provides a shortcode to help when writing documentation for shortcodes.
 
