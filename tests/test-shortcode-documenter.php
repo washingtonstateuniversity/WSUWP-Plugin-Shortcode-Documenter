@@ -20,7 +20,7 @@ class Test_Shortcode_Documenter extends WP_UnitTestCase {
 			array( '[shortcode_doc shortcode=""]', '' ),
 			array(
 				'[shortcode_doc shortcode="wsuwp_json"]',
-				'<pre><code>[wsuwp_json]</code></pre>'
+				'<code>[wsuwp_json]</code>',
 			),
 			array(
 				'[shortcode_doc shortcode="wsuwp_json"]Text content[/shortcode_doc]',
@@ -32,15 +32,15 @@ class Test_Shortcode_Documenter extends WP_UnitTestCase {
 			),
 			array(
 				'[shortcode_doc shortcode="wsuwp_json" atts="count,output" values="4,headlines"]',
-				'<pre><code>[wsuwp_json count="4" output="headlines"]</code></pre>',
+				'<code>[wsuwp_json count="4" output="headlines"]</code>',
 			),
 			array(
 				'[shortcode_doc shortcode="wsuwp_json" atts="count,output,missing" values="4,headlines"]',
-				'<pre><code>[wsuwp_json count="4" output="headlines"]</code></pre>',
+				'<code>[wsuwp_json count="4" output="headlines"]</code>',
 			),
 			array(
 				'[shortcode_doc shortcode="wsuwp_json" atts="count,output,empty" values="4,headlines,"]',
-				'<pre><code>[wsuwp_json count="4" output="headlines" empty=""]</code></pre>',
+				'<code>[wsuwp_json count="4" output="headlines" empty=""]</code>',
 			),
 			array(
 				'[shortcode_doc shortcode="wsuwp_json" atts="count,output,empty" values="4,headlines,"]<div>HTML content</div>[/shortcode_doc]',

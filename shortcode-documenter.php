@@ -92,13 +92,9 @@ class WSU_Shortcode_Documenter {
 			$return_content .= htmlentities( html_entity_decode( $content ) );
 
 			$return_content .= '&#91;/' . $atts['shortcode'] . '&#93;';
-
-			// If a shortcode also has content, assume wrap without `<pre>`.
-			$return_content = '<code>' . $return_content . '</code>';
-		} else {
-			// If a shortcode does not have content, assume non-wrap with `<pre>`.
-			$return_content = '<pre><code>' . $return_content . '</code></pre>';
 		}
+
+		$return_content = '<code>' . $return_content . '</code>';
 
 		return $return_content;
 	}
