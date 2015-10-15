@@ -52,7 +52,51 @@ class WSU_Shortcode_Documenter {
 	 * @return string
 	 */
 	public function display_shortcode_doc( $atts, $content ) {
-		return 'Shortcode documentation';
+		if ( empty( $atts ) ) {
+			return '';
+		}
+
+		$defaults = array(
+			'shortcode' => '',
+			'atts' => '',
+			'values' => '',
+		);
+		$atts = shortcode_atts( $defaults, $atts );
+
+		// Start building the shortcode.
+		if ( ! empty( $atts['shortcode'] ) ) {
+			$return_content = '&#91;' . $atts['shortcode'];
+		} else {
+			return '';
+		}
+
+		if ( ! empty( $atts['atts'] ) ) {
+			$atts_build = explode( ',', $atts['atts'] );
+			$values_build = explode( ',', $atts['values'] );
+
+			foreach( $atts_build as $k => $v ) {
+				if ( ! isset( $values_build[ $k ] ) ) {
+					continue;
+				}
+
+				$return_content .= ' ' . esc_html( trim( $v ) ) . '="' . esc_html( trim( $values_build[ $k ] ) ) . '"';
+			}
+		}
+
+		// Close the initial shortcode block.
+		if ( ! empty( $atts['shortcode'] ) ) {
+			$return_content .= '&#93;';
+		}
+
+		if ( ! empty( $content ) ) {
+			$return_content .= htmlentities( html_entity_decode( $content ) );
+
+			$return_content .= '&#91;/' . $atts['shortcode'] . '&#93;';
+		}
+
+		$return_content = '<code>' . $return_content . '</code>';
+
+		return $return_content;
 	}
 }
 
