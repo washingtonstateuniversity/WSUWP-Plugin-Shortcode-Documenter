@@ -63,18 +63,29 @@ class WSU_Shortcode_Documenter {
 
 		// Start building the shortcode.
 		if ( ! empty( $atts['shortcode'] ) ) {
-			$content = '&#91;' . $atts['shortcode'];
+			$return_content = '&#91;' . $atts['shortcode'];
 		} else {
 			return '';
 		}
 
 		// Close the initial shortcode block.
 		if ( ! empty( $atts['shortcode'] ) ) {
-			$content .= '&#93;';
+			$return_content .= '&#93;';
 		}
 
-		$content = '<pre><code>' . $content . '</code></pre>';
-		return $content;
+		if ( ! empty( $content ) ) {
+			$return_content .= htmlentities( html_entity_decode( $content ) );
+
+			$return_content .= '&#91;/' . $atts['shortcode'] . '&#93;';
+
+			// If a shortcode also has content, assume wrap without `<pre>`.
+			$return_content = '<code>' . $return_content . '</code>';
+		} else {
+			// If a shortcode does not have content, assume non-wrap with `<pre>`.
+			$return_content = '<pre><code>' . $return_content . '</code></pre>';
+		}
+
+		return $return_content;
 	}
 }
 

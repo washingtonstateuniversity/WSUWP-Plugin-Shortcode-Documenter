@@ -19,6 +19,14 @@ class Test_Shortcode_Documenter extends WP_UnitTestCase {
 			array( '[shortcode_doc]', '' ),
 			array( '[shortcode_doc shortcode=""]', '' ),
 			array( '[shortcode_doc shortcode="wsuwp_json"]', '<pre><code>[wsuwp_json]</code></pre>'),
+			array(
+				'[shortcode_doc shortcode="wsuwp_json"]Text content[/shortcode_doc]',
+				'<code>[wsuwp_json]Text content[/wsuwp_json]</code>',
+			),
+			array(
+				'[shortcode_doc shortcode="wsuwp_json"]<div>HTML content</div>[/shortcode_doc]',
+				'<code>[wsuwp_json]&lt;div&gt;HTML content&lt;/div&gt;[/wsuwp_json]</code>',
+			),
 		);
 
 		return $data;
