@@ -46,12 +46,12 @@ class WSU_Shortcode_Documenter {
 	 *
 	 * @since 0.0.1
 	 *
-	 * @param $args
-	 * @param $content
+	 * @param array  $atts    List of attributes associated with the shortcode.
+	 * @param string $content Other content passed with the shortcode.
 	 *
 	 * @return string
 	 */
-	public function display_shortcode_doc( $args, $content ) {
+	public function display_shortcode_doc( $atts, $content ) {
 		return 'Shortcode documentation';
 	}
 }
